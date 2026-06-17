@@ -43,3 +43,6 @@ yarn-error.*
 
 # assets (images, fonts, icons — not tracked in git)
 assets/
+
+# Reference / scratch files (not part of the app)
+uber_reference_package.json
