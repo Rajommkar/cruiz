@@ -4,7 +4,11 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
 import { tokenCache } from "@/lib/auth";
+import { NativeWindStyleSheet } from "nativewind";
 
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
 // Polyfill setImmediate for web — react-native-swiper uses it internally
 if (typeof (globalThis as any).setImmediate === "undefined") {
   (globalThis as any).setImmediate = (fn: () => void) => setTimeout(fn, 0);
