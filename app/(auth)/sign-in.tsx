@@ -96,7 +96,8 @@ const SignIn = () => {
           <CustomButton
             title="Skip Auth (Dev Only)"
             onPress={() => router.replace("/(root)/(tabs)/home")}
-            className="mt-4 bg-gray-500"
+            bgVariant="secondary"
+            style={{ marginTop: 16 }}
           />
 
           <OAuth />

@@ -24,7 +24,16 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
-    }
+      "favicon": "./assets/images/favicon.png",
+      "output": "server"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://uber.com/"
+        }
+      ]
+    ]
   }
 }

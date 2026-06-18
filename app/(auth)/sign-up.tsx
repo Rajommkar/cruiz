@@ -10,6 +10,7 @@ import {
 import { useState } from "react";
 import { Link, router } from "expo-router";
 import { useSignUp } from "@clerk/clerk-expo";
+import { fetchAPI } from "@/lib/fetch";
 
 import CustomButton from "@/components/CustomButton";
 import InputField from "@/components/InputField";
@@ -78,7 +79,14 @@ const SignUp = () => {
       });
 
       if (completeSignUp.status === "complete") {
-        // TODO: Create a database user
+        await fetchAPI("/(api)/user", {
+          method: "POST",
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            clerkId: completeSignUp.createdUserId,
+          }),
+        });
 
         await setActive({ session: completeSignUp.createdSessionId });
         setVerification({ ...verification, state: "success" });
@@ -150,7 +158,8 @@ const SignUp = () => {
           <CustomButton
             title="Skip Auth (Dev Only)"
             onPress={() => router.replace("/(root)/(tabs)/home")}
-            className="mt-4 bg-gray-500"
+            bgVariant="secondary"
+            style={{ marginTop: 16 }}
           />
 
           <OAuth />
