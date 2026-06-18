@@ -18,8 +18,13 @@ const GoogleTextInput = ({
     >
       <GooglePlacesAutocomplete
         fetchDetails={true}
-        placeholder="Where you want to go?"
+        placeholder={initialLocation ?? "Where do you want to go?"}
         debounce={200}
+        predefinedPlaces={[]}
+        GooglePlacesDetailsQuery={{}}
+        GooglePlacesSearchQuery={{ rankby: "distance", type: "restaurant" }}
+        GoogleReverseGeocodingQuery={{}}
+        filterReverseGeocodingByTypes={[]}
         styles={{
           textInputContainer: {
             alignItems: "center",
