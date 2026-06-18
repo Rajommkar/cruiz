@@ -21,7 +21,7 @@ export interface InputFieldProps extends TextInputProps {
 }
 
 export interface GoogleInputProps {
-  icon?: string;
+  icon?: any;
   initialLocation?: string;
   containerStyle?: string;
   textInputBackgroundColor?: string;
@@ -60,4 +60,54 @@ export declare interface Ride {
   user_id: string;
   created_at: string;
   driver: Driver;
+}
+
+export declare interface MarkerData {
+  latitude: number;
+  longitude: number;
+  id: number;
+  title: string;
+  profile_image_url: string;
+  car_image_url: string;
+  car_seats: number;
+  rating: number;
+  first_name: string;
+  last_name: string;
+  time?: number;
+  price?: string;
+}
+
+export declare interface LocationStore {
+  userLatitude: number | null;
+  userLongitude: number | null;
+  userAddress: string | null;
+  destinationLatitude: number | null;
+  destinationLongitude: number | null;
+  destinationAddress: string | null;
+  setUserLocation: ({
+    latitude,
+    longitude,
+    address,
+  }: {
+    latitude: number;
+    longitude: number;
+    address: string;
+  }) => void;
+  setDestinationLocation: ({
+    latitude,
+    longitude,
+    address,
+  }: {
+    latitude: number;
+    longitude: number;
+    address: string;
+  }) => void;
+}
+
+export declare interface DriverStore {
+  drivers: MarkerData[];
+  selectedDriver: number | null;
+  setSelectedDriver: (driverId: number) => void;
+  setDrivers: (drivers: MarkerData[]) => void;
+  clearSelectedDriver: () => void;
 }
