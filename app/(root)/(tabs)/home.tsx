@@ -9,6 +9,9 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useUser } from "@clerk/clerk-expo";
+import * as Location from "expo-location";
+import { useLocationStore } from "@/store";
+import { useEffect, useState } from "react";
 
 import RideCard from "@/components/RideCard";
 import GoogleTextInput from "@/components/GoogleTextInput";
@@ -125,6 +128,38 @@ const recentRides = [
 const Home = () => {
   const { user } = useUser();
   const loading = false;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { setUserLocation, setDestinationLocation } = useLocationStore();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [hasPermissions, setHasPermissions] = useState(false);
+
+  useEffect(() => {
+    const requestLocation = async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setHasPermissions(false);
+        return;
+      }
+      setHasPermissions(true);
+
+      let location = await Location.getCurrentPositionAsync({});
+
+      const address = await Location.reverseGeocodeAsync({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      });
+
+      setUserLocation({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        address: `${address[0]?.name || "Unknown"}, ${address[0]?.region || "Unknown"}`,
+      });
+    };
+
+    requestLocation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSignOut = () => {};
   const handleDestinationPress = () => {};
