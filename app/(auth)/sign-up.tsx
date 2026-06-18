@@ -6,7 +6,6 @@ import {
   StyleSheet,
   Dimensions,
   Modal,
-  Alert,
 } from "react-native";
 import { useState } from "react";
 import { Link, router } from "expo-router";
@@ -102,8 +101,7 @@ const SignUp = () => {
   return (
     <ScrollView
       style={styles.scroll}
-      contentContainerStyle={styles.scrollContent}
-    >
+      contentContainerStyle={styles.scrollContent}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image
@@ -140,11 +138,7 @@ const SignUp = () => {
             onChangeText={(value) => setForm({ ...form, password: value })}
           />
 
-          {formError ? (
-            <Text style={styles.errorText}>
-              {formError}
-            </Text>
-          ) : null}
+          {formError ? <Text style={styles.errorText}>{formError}</Text> : null}
 
           <CustomButton
             title="Sign Up"
@@ -171,10 +165,11 @@ const SignUp = () => {
       </View>
 
       <Modal
-        visible={verification.state === "pending" || verification.state === "success"}
+        visible={
+          verification.state === "pending" || verification.state === "success"
+        }
         transparent={true}
-        animationType="fade"
-      >
+        animationType="fade">
         <View style={styles.modalBackdrop}>
           <View style={styles.modalContent}>
             {verification.state === "pending" ? (
@@ -183,7 +178,7 @@ const SignUp = () => {
                   Verification
                 </Text>
                 <Text className="font-Jakarta mb-5">
-                  We've sent a verification code to {form.email}
+                  We&apos;ve sent a verification code to {form.email}
                 </Text>
 
                 <InputField

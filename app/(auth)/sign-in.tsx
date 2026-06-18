@@ -50,13 +50,12 @@ const SignIn = () => {
         setFormError("An unexpected error occurred during sign in.");
       }
     }
-  }, [isLoaded, form.email, form.password]);
+  }, [isLoaded, form.email, form.password, router, setActive, signIn]);
 
   return (
     <ScrollView
       style={styles.scroll}
-      contentContainerStyle={styles.scrollContent}
-    >
+      contentContainerStyle={styles.scrollContent}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image
@@ -85,9 +84,7 @@ const SignIn = () => {
             onChangeText={(value) => setForm({ ...form, password: value })}
           />
 
-          {formError ? (
-            <Text style={styles.errorText}>{formError}</Text>
-          ) : null}
+          {formError ? <Text style={styles.errorText}>{formError}</Text> : null}
 
           <CustomButton
             title="Sign In"
@@ -106,7 +103,7 @@ const SignIn = () => {
 
           <Link href="/(auth)/sign-up" asChild>
             <Text style={styles.linkText}>
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Text style={styles.linkTextHighlight}>Sign Up</Text>
             </Text>
           </Link>

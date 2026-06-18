@@ -1,5 +1,5 @@
-import * as SecureStore from 'expo-secure-store';
-import { Platform } from 'react-native';
+import * as SecureStore from "expo-secure-store";
+import { Platform } from "react-native";
 
 const createTokenCache = () => {
   return {
@@ -9,11 +9,11 @@ const createTokenCache = () => {
         if (item) {
           console.log(`${key} was used 🔐 \n`);
         } else {
-          console.log('No values stored under key: ' + key);
+          console.log("No values stored under key: " + key);
         }
         return item;
       } catch (error) {
-        console.error('SecureStore get item error: ', error);
+        console.error("SecureStore get item error: ", error);
         await SecureStore.deleteItemAsync(key).catch(() => {});
         return null;
       }
@@ -28,4 +28,5 @@ const createTokenCache = () => {
   };
 };
 
-export const tokenCache = Platform.OS !== 'web' ? createTokenCache() : undefined;
+export const tokenCache =
+  Platform.OS !== "web" ? createTokenCache() : undefined;

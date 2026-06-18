@@ -15,8 +15,7 @@ const TabIcon = ({
       justifyContent: "center",
       alignItems: "center",
       borderRadius: 50,
-    }}
-  >
+    }}>
     <View
       style={{
         borderRadius: 50,
@@ -25,8 +24,7 @@ const TabIcon = ({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: focused ? "#0CC25F" : "transparent",
-      }}
-    >
+      }}>
       <Ionicons name={iconName} size={28} color="white" />
     </View>
   </View>
@@ -54,8 +52,7 @@ export default function Layout() {
           flexDirection: "row",
           position: "absolute",
         },
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="home"
         options={{

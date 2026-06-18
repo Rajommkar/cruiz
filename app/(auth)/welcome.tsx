@@ -16,13 +16,15 @@ const Welcome = () => {
   return (
     <SafeAreaView
       className="bg-white"
-      style={{ flex: 1, alignItems: "center", justifyContent: "space-between" }}
-    >
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}>
       {/* Skip button — pinned top-right */}
       <TouchableOpacity
         onPress={() => router.replace("/(auth)/sign-up")}
-        style={{ width: "100%", alignItems: "flex-end", padding: 20 }}
-      >
+        style={{ width: "100%", alignItems: "flex-end", padding: 20 }}>
         <Text className="text-black text-base font-JakartaBold">Skip</Text>
       </TouchableOpacity>
 
@@ -37,8 +39,7 @@ const Welcome = () => {
           <View className="w-[32px] h-[4px] mx-1 bg-[#0286FF] rounded-full" />
         }
         onIndexChanged={(index) => setActiveIndex(index)}
-        style={{ flex: 1 }}
-      >
+        style={{ flex: 1 }}>
         {onboarding.map((item) => (
           <View
             key={item.id}
@@ -48,8 +49,7 @@ const Welcome = () => {
               alignItems: "center",
               justifyContent: "center",
               padding: 20,
-            }}
-          >
+            }}>
             <Image
               source={item.image}
               style={{ width: "100%", height: 300 }}
@@ -62,12 +62,10 @@ const Welcome = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 marginTop: 40,
-              }}
-            >
+              }}>
               <Text
                 style={{ textAlign: "center", marginHorizontal: 40 }}
-                className="text-black text-3xl font-bold"
-              >
+                className="text-black text-3xl font-bold">
                 {item.title}
               </Text>
             </View>
@@ -77,8 +75,7 @@ const Welcome = () => {
                 marginHorizontal: 40,
                 marginTop: 12,
               }}
-              className="text-lg font-JakartaSemiBold text-[#858585]"
-            >
+              className="text-lg font-JakartaSemiBold text-[#858585]">
               {item.description}
             </Text>
           </View>

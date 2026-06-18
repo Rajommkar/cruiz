@@ -50,8 +50,7 @@ const CustomButton = ({
     <TouchableOpacity
       onPress={onPress}
       style={[styles.button, getBgVariantStyle(bgVariant), style]}
-      {...props}
-    >
+      {...props}>
       {IconLeft && <IconLeft />}
       <Text style={[styles.text, getTextVariantStyle(textVariant)]}>
         {title}

@@ -19,17 +19,17 @@
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| [Expo SDK 56](https://expo.dev) | Cross-platform mobile framework |
-| [Expo Router](https://expo.github.io/router) | File-based navigation |
-| [React Native](https://reactnative.dev) | Core mobile UI |
-| [NativeWind](https://www.nativewind.dev) | Tailwind CSS for React Native |
-| [Clerk](https://clerk.com) | Authentication & user management |
-| [Stripe](https://stripe.com) | Payment processing |
-| [React Native Maps](https://github.com/react-native-maps/react-native-maps) | Map rendering |
-| [Zustand](https://zustand-demo.pmnd.rs) | Lightweight state management |
-| [TypeScript](https://www.typescriptlang.org) | Type safety |
+| Technology                                                                  | Purpose                          |
+| --------------------------------------------------------------------------- | -------------------------------- |
+| [Expo SDK 56](https://expo.dev)                                             | Cross-platform mobile framework  |
+| [Expo Router](https://expo.github.io/router)                                | File-based navigation            |
+| [React Native](https://reactnative.dev)                                     | Core mobile UI                   |
+| [NativeWind](https://www.nativewind.dev)                                    | Tailwind CSS for React Native    |
+| [Clerk](https://clerk.com)                                                  | Authentication & user management |
+| [Stripe](https://stripe.com)                                                | Payment processing               |
+| [React Native Maps](https://github.com/react-native-maps/react-native-maps) | Map rendering                    |
+| [Zustand](https://zustand-demo.pmnd.rs)                                     | Lightweight state management     |
+| [TypeScript](https://www.typescriptlang.org)                                | Type safety                      |
 
 ---
 
@@ -92,15 +92,15 @@ cruiz/
 
 ## 📱 Screens
 
-| Screen | Description |
-|---|---|
-| Welcome / Onboarding | 3-slide swiper introducing Cruiz |
-| Sign Up | Email registration + Google OAuth |
-| Sign In | Email login + Google OAuth |
-| Home | Map view + ride booking |
-| Rides | Ride history |
-| Chat | In-app messaging |
-| Profile | User account management |
+| Screen               | Description                       |
+| -------------------- | --------------------------------- |
+| Welcome / Onboarding | 3-slide swiper introducing Cruiz  |
+| Sign Up              | Email registration + Google OAuth |
+| Sign In              | Email login + Google OAuth        |
+| Home                 | Map view + ride booking           |
+| Rides                | Ride history                      |
+| Chat                 | In-app messaging                  |
+| Profile              | User account management           |
 
 ---
 

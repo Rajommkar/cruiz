@@ -40,8 +40,7 @@ const InputField = ({
         {secureTextEntry && (
           <TouchableOpacity
             onPress={() => setShowPassword(!showPassword)}
-            style={styles.toggleButton}
-          >
+            style={styles.toggleButton}>
             <Ionicons
               name={showPassword ? "eye" : "eye-off"}
               size={24}
