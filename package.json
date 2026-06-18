@@ -4,6 +4,7 @@
   "main": "index.ts",
   "dependencies": {
     "@clerk/clerk-expo": "^2.19.31",
+    "@expo/vector-icons": "^15.1.1",
     "@gorhom/bottom-sheet": "^5.2.14",
     "@stripe/stripe-react-native": "^0.64.0",
     "expo": "~56.0.12",

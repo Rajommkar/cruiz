@@ -25,9 +25,11 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const [formError, setFormError] = useState("");
 
   const onSignInPress = useCallback(async () => {
     if (!isLoaded) return;
+    setFormError("");
 
     try {
       const signInAttempt = await signIn.create({
@@ -39,10 +41,14 @@ const SignIn = () => {
         await setActive({ session: signInAttempt.createdSessionId });
         router.replace("/(root)/(tabs)/home");
       } else {
-        console.error(JSON.stringify(signInAttempt, null, 2));
+        setFormError("Sign in failed. Please try again.");
       }
-    } catch (err) {
-      console.error(JSON.stringify(err, null, 2));
+    } catch (err: any) {
+      if (err.errors && err.errors.length > 0) {
+        setFormError(err.errors[0].longMessage);
+      } else {
+        setFormError("An unexpected error occurred during sign in.");
+      }
     }
   }, [isLoaded, form.email, form.password]);
 
@@ -79,10 +85,21 @@ const SignIn = () => {
             onChangeText={(value) => setForm({ ...form, password: value })}
           />
 
+          {formError ? (
+            <Text style={styles.errorText}>{formError}</Text>
+          ) : null}
+
           <CustomButton
             title="Sign In"
             onPress={onSignInPress}
             style={{ marginTop: 24 }}
+          />
+
+          {/* DEVELOPMENT ONLY: Skip Authentication button */}
+          <CustomButton
+            title="Skip Auth (Dev Only)"
+            onPress={() => router.replace("/(root)/(tabs)/home")}
+            className="mt-4 bg-gray-500"
           />
 
           <OAuth />
@@ -141,6 +158,13 @@ const styles = StyleSheet.create({
   linkTextHighlight: {
     color: "#0286FF", // text-primary-500
     fontFamily: "Jakarta-SemiBold",
+  },
+  errorText: {
+    color: "red",
+    marginTop: 8,
+    fontSize: 14,
+    fontFamily: "Jakarta-Regular",
+    textAlign: "center",
   },
 });
 

@@ -4,7 +4,10 @@ import {
   Text,
   Image,
   StyleSheet,
+  TouchableOpacity,
 } from "react-native";
+import { useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
 
 import { InputFieldProps } from "@/types/type";
 
@@ -19,6 +22,8 @@ const InputField = ({
   className,
   ...props
 }: InputFieldProps) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <View style={styles.wrapper}>
       <Text style={styles.label}>{label}</Text>
@@ -28,10 +33,22 @@ const InputField = ({
         )}
         <TextInput
           style={styles.input}
-          secureTextEntry={secureTextEntry}
+          secureTextEntry={secureTextEntry && !showPassword}
           placeholderTextColor="#A3A3A3"
           {...props}
         />
+        {secureTextEntry && (
+          <TouchableOpacity
+            onPress={() => setShowPassword(!showPassword)}
+            style={styles.toggleButton}
+          >
+            <Ionicons
+              name={showPassword ? "eye" : "eye-off"}
+              size={24}
+              color="#A3A3A3"
+            />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -70,6 +87,15 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "left",
     color: "#000",
+  },
+  toggleButton: {
+    padding: 16,
+    paddingRight: 20,
+  },
+  toggleText: {
+    fontFamily: "Jakarta-SemiBold",
+    fontSize: 15,
+    color: "#A3A3A3",
   },
 });
 

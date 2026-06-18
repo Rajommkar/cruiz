@@ -1,10 +1,11 @@
-import { View, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Text } from "react-native";
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <SafeAreaView>
+      <Text>Hello contact adjs Mastery Pro</Text>
+    </SafeAreaView>
   );
 };
 
