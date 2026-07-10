@@ -221,7 +221,7 @@ const SignUp = () => {
                 />
 
                 <Text className="text-3xl font-JakartaBold text-center">
-                  Verified
+                  Verified!
                 </Text>
 
                 <Text className="text-base text-gray-400 font-Jakarta text-center mt-2">
