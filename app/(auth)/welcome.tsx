@@ -55,18 +55,13 @@ const Welcome = () => {
               style={{ width: "100%", height: 300 }}
               resizeMode="contain"
             />
-            <View
-              style={{
-                width: "100%",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: 40,
-              }}>
-              <Text
-                style={{ textAlign: "center", marginHorizontal: 40 }}
-                className="text-black text-3xl font-bold">
-                {item.title}
+            <View className="flex flex-row items-center justify-center w-full mt-10">
+              <Text className="text-black text-3xl font-bold mx-10 text-center">
+                {item.title.split("Ryde")[0]}
+                {item.title.includes("Ryde") && (
+                  <Text className="text-[#0286FF]">Ryde</Text>
+                )}
+                {item.title.split("Ryde")[1]}
               </Text>
             </View>
             <Text
