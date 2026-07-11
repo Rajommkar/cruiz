@@ -34,8 +34,9 @@ export const calculateRegion = ({
 }) => {
   if (!userLatitude || !userLongitude) {
     return {
-      latitude: 37.78825,
-      longitude: -122.4324,
+      // Default: Bhubaneswar, Odisha, India
+      latitude: 20.2961,
+      longitude: 85.8245,
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     };

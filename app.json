@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Cruiz",
+    "name": "Ryde",
     "slug": "cruiz",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,6 +11,7 @@
       "resizeMode": "cover",
       "backgroundColor": "#0286FF"
     },
+    "scheme": "myapp",
     "ios": {
       "supportsTablet": true
     },
@@ -21,7 +22,8 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.rajommkar.cruiz"
     },
     "web": {
       "favicon": "./assets/images/favicon.png",
@@ -33,7 +35,23 @@
         {
           "origin": "https://uber.com/"
         }
+      ],
+      "expo-web-browser",
+      [
+        "@stripe/stripe-react-native",
+        {
+          "merchantIdentifier": "merchant.com.rajommkar.cruiz",
+          "enableGooglePay": true
+        }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": "https://uber.com/"
+      },
+      "eas": {
+        "projectId": "f1293e45-8a17-49ec-91f0-aa1ef2306b16"
+      }
+    }
   }
 }

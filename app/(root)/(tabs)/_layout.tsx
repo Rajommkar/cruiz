@@ -1,12 +1,12 @@
 import { Tabs } from "expo-router";
-import { View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Image, View } from "react-native";
+import { icons } from "@/constants";
 
 const TabIcon = ({
-  iconName,
+  source,
   focused,
 }: {
-  iconName: keyof typeof Ionicons.glyphMap;
+  source: any;
   focused: boolean;
 }) => (
   <View
@@ -15,7 +15,8 @@ const TabIcon = ({
       justifyContent: "center",
       alignItems: "center",
       borderRadius: 50,
-    }}>
+    }}
+  >
     <View
       style={{
         borderRadius: 50,
@@ -24,8 +25,14 @@ const TabIcon = ({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: focused ? "#0CC25F" : "transparent",
-      }}>
-      <Ionicons name={iconName} size={28} color="white" />
+      }}
+    >
+      <Image
+        source={source}
+        tintColor="white"
+        resizeMode="contain"
+        style={{ width: 26, height: 26 }}
+      />
     </View>
   </View>
 );
@@ -52,14 +59,15 @@ export default function Layout() {
           flexDirection: "row",
           position: "absolute",
         },
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
           title: "Home",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon iconName="home" focused={focused} />
+            <TabIcon source={icons.home} focused={focused} />
           ),
         }}
       />
@@ -69,7 +77,7 @@ export default function Layout() {
           title: "Rides",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon iconName="list" focused={focused} />
+            <TabIcon source={icons.list} focused={focused} />
           ),
         }}
       />
@@ -79,7 +87,7 @@ export default function Layout() {
           title: "Chat",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon iconName="chatbubble-ellipses" focused={focused} />
+            <TabIcon source={icons.chat} focused={focused} />
           ),
         }}
       />
@@ -89,7 +97,7 @@ export default function Layout() {
           title: "Profile",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon iconName="person" focused={focused} />
+            <TabIcon source={icons.profile} focused={focused} />
           ),
         }}
       />

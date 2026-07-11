@@ -22,7 +22,7 @@ const GoogleTextInput = ({
         debounce={200}
         predefinedPlaces={[]}
         GooglePlacesDetailsQuery={{}}
-        GooglePlacesSearchQuery={{ rankby: "distance", type: "restaurant" }}
+        GooglePlacesSearchQuery={{}}
         GoogleReverseGeocodingQuery={{}}
         filterReverseGeocodingByTypes={[]}
         styles={{
@@ -63,6 +63,7 @@ const GoogleTextInput = ({
           key: googlePlacesApiKey,
           language: "en",
         }}
+        onFail={(error) => console.error(error)}
         renderLeftButton={() => (
           <View className="justify-center items-center w-6 h-6">
             <Image
