@@ -16,22 +16,24 @@ const FindRide = () => {
 
   return (
     <RideLayout title="Ride" snapPoints={["85%"]}>
+      {/* From Field */}
       <View className="my-3">
         <Text className="text-lg font-JakartaSemiBold mb-3">From</Text>
         <GoogleTextInput
           icon={icons.target}
-          initialLocation={userAddress!}
+          initialLocation={userAddress ?? "From location"}
           containerStyle="bg-neutral-100"
           textInputBackgroundColor="#f5f5f5"
           handlePress={(location) => setUserLocation(location)}
         />
       </View>
 
+      {/* To Field */}
       <View className="my-3">
         <Text className="text-lg font-JakartaSemiBold mb-3">To</Text>
         <GoogleTextInput
           icon={icons.map}
-          initialLocation={destinationAddress!}
+          initialLocation={destinationAddress ?? "To location"}
           containerStyle="bg-neutral-100"
           textInputBackgroundColor="transparent"
           handlePress={(location) => setDestinationLocation(location)}
