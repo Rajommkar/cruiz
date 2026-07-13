@@ -111,3 +111,11 @@ export declare interface DriverStore {
   setDrivers: (drivers: MarkerData[]) => void;
   clearSelectedDriver: () => void;
 }
+
+export declare interface PaymentProps {
+  fullName: string;
+  email: string;
+  amount: string;
+  driverId: number;
+  rideTime: number;
+}
